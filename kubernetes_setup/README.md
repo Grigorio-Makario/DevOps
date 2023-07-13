@@ -6,7 +6,8 @@
 а также External Load Balancer. 
 При необходимости расширения состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
 /kubernetes_setup/terraform/k8s-cluster.tf
-![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/adfbe297-f7a5-4c12-968b-c592fc9f8fcd)
+![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/0d9675aa-4888-42d0-b11a-3aefb05b900c)
+
 
 ----------------------------------------------------------
 # Для работы с платформой необходимо создать свое “облако” 
