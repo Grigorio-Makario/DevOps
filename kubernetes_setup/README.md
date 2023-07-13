@@ -4,7 +4,7 @@
 1 - Ingress  
 1 - External Load Balancer.   
 Так же отдельный Sever (Ubuntu) для мониторинга и сборки Docker-образов.  
-Для автоматической установки Docker на удаленный сервер. можно использовать уже готовый play-book Ansible ansible/docker.yml  
+Для автоматической установки Docker на удаленный сервер можно использовать уже готовый play-book Ansible ansible/docker.yml  
 Для разворачивания средств сбора мерик и мониторинга (отправки Alerts в Telegram при сбоях кластера или самого Server) использовать Docker compose.  
 BlackBox  
 Grafana  
