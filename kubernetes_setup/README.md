@@ -4,6 +4,7 @@
 1 - Ingress  
 1 - External Load Balancer.   
 Так же отдельный Sever (Ubuntu) для мониторинга и сборки Docker-образов.  
+Для автоматической установки Docker на удаленный сервер. можно использовать уже готовый play-book Ansible ansible/docker.yml  
 При необходимости расширения состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
 /kubernetes_setup/terraform/k8s-cluster.tf  
 ![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/0d9675aa-4888-42d0-b11a-3aefb05b900c)
