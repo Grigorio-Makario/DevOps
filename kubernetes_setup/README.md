@@ -84,9 +84,8 @@ $ bash cluster_install.sh
 ```
 $ mkdir -p ~/.kube && cp kubespray/inventory/mycluster/artifacts/admin.conf ~/.kube/config
 ```
-## Для автоматической 
 
-## Пример запуска pod-ов для тестового app + postgresql  
+## Пример запуска pod-ов для тестового app + postgresql от bitnami 
 Тестовое приложение склонировать по ссылке  
 https://github.com/vinhlee95/django-pg-docker-tutorial  
 
