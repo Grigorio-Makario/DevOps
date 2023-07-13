@@ -79,6 +79,7 @@ yc_folder_id – ID каталога (скопировать из консоли
 ```
 $ bash cluster_install.sh
 ```
+![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/606fd716-0642-49c7-b68d-a8d718271156)
 
 ## Копируем конфигурационный файл в каталог по умолчанию:
 ```
