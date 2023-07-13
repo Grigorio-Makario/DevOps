@@ -1,0 +1,26 @@
+variables:
+  CI_REGISTRY: hub.docker.com
+  CI_DOCKER_REPO: gnmakarov/devops
+stages:
+  - build docker image
+  - push docker image
+  
+before_script:
+  - docker info
+  - docker login --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
+
+build image:
+  stage: build docker image
+  tags:
+    - shell
+  script:
+    - cd /home/ubuntu/django-pg-docker-tutorial
+    - docker build -t $CI_DOCKER_REPO:$CI_COMMIT_SHORT_SHA -f Dockerfile .
+  when: on_success
+
+push docker image:
+  stage: push docker image
+  tags:
+    - shell
+  script:
+    - docker push $CI_DOCKER_REPO:$CI_COMMIT_SHORT_SHA
