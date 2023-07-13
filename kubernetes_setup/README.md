@@ -3,7 +3,7 @@
 1 - Worker  
 1 - Ingress  
 1 - External Load Balancer.   
-1 - Отдельный Sever для мониторинга и сборки Docker-образов.  
+Так же отдельный Sever (Ubuntu) для мониторинга и сборки Docker-образов.  
 При необходимости расширения состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
 /kubernetes_setup/terraform/k8s-cluster.tf  
 ![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/0d9675aa-4888-42d0-b11a-3aefb05b900c)
@@ -74,7 +74,9 @@ $ mkdir -p ~/.kube && cp kubespray/inventory/mycluster/artifacts/admin.conf ~/.k
 ```
 
 
-## Пример запуска pod-ов для тестового app + postgresql
+## Пример запуска pod-ов для тестового app + postgresql  
+Тестовое приложение склонировать по ссылке  
+https://github.com/vinhlee95/django-pg-docker-tutorial
 
 ```
 $ helm install --namespace devops --create-namespace my-postgresql bitnami/postgresql -f values.yaml
