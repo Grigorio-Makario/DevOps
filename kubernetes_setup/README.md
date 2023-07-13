@@ -55,7 +55,9 @@ https://stedolan.github.io/jq/
 $ cd kubernetes_setup
 $ git clone git@git.cloud-team.ru:ansible-roles/kubespray.git \
  kubespray -b cloudteam
-Устанавливаем зависимости Kubespray:
+```
+##  Устанавливаем зависимости Kubespray:  
+```
 $ sudo pip3 install -r kubespray/requirements.txt
 ```
 ## Определить необходимые переменные для Terraform
