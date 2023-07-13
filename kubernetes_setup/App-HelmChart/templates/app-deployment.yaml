@@ -16,20 +16,29 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: gnmakarov/devops:46205217
+          image: gnmakarov/devops
           args:  
             - sh
             - -c
             - python manage.py migrate && python manage.py runserver 0.0.0.0:3003 
           env:
-            - name: DB_HOST
-              value: my-postgresql
-            - name: DB_NAME
-              value: tutorial-dev
-            - name: DB_PASS
-              value: password
-            - name: DB_USER
-              value: vinhle
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_USER
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_PASSWORD
+
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: POSTGRES_DB
           ports:
             - containerPort: 3003      
           resources: {}
