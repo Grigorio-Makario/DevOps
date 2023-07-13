@@ -1,8 +1,8 @@
-## Установка кластера Kubernetes, состоящего из:
-1 - Master
-1 - Worker
-1 - Ingress
-а также External Load Balancer. 
+## Установка кластера Kubernetes, состоящего из:  
+1 - Master  
+1 - Worker  
+1 - Ingress  
+а также External Load Balancer.   
 При необходимости расширения состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
 /kubernetes_setup/terraform/k8s-cluster.tf
 ![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/0d9675aa-4888-42d0-b11a-3aefb05b900c)
