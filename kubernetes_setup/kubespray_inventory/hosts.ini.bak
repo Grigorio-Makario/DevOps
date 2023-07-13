@@ -1,0 +1,40 @@
+[all]
+master-1   ansible_host=158.160.63.25   ip=192.168.10.7   etcd_member_name=etcd-1
+master-2   ansible_host=null   ip=null   etcd_member_name=etcd-2
+master-3   ansible_host=null   ip=null   etcd_member_name=etcd-3
+ingress-1   ansible_host=158.160.98.62   ip=192.168.10.30
+ingress-2   ansible_host=null   ip=null
+worker-1   ansible_host=158.160.111.89   ip=192.168.10.26
+worker-2   ansible_host=null   ip=null
+
+[all:vars]
+ansible_user=ubuntu
+supplementary_addresses_in_ssl_keys='["158.160.63.25"]'
+
+[kube-master]
+master-1
+#master-2
+#master-3
+
+[etcd]
+master-1
+#master-2
+#master-3
+
+[kube-node]
+worker-1
+#worker-2
+ingress-1
+#ingress-2
+
+[kube-worker]
+worker-1
+#worker-2
+
+[kube-ingress]
+ingress-1
+#ingress-2
+
+[k8s-cluster:children]
+kube-master
+kube-node

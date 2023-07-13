@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels: 
+    app.kubernetes.io/name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: gnmakarov/devops:46205217
+          args:  
+            - sh
+            - -c
+            - python manage.py migrate && python manage.py runserver 0.0.0.0:3003 
+          env:
+            - name: DB_HOST
+              value: my-postgresql
+            - name: DB_NAME
+              value: tutorial-dev
+            - name: DB_PASS
+              value: password
+            - name: DB_USER
+              value: vinhle
+          ports:
+            - containerPort: 3003      
+          resources: {}
+status: {}

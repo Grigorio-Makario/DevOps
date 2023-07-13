@@ -1,0 +1,50 @@
+---
+- hosts: servers
+  become: true
+  gather_facts: no
+  vars:
+    user_name: root
+  tasks:
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: yes
+    - name: Add Docker’s official GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: Run apt upgrade
+      apt:
+        upgrade: "yes"
+        update_cache: yes
+        cache_valid_time: 432000
+    - name: Use the following command to set up the repository
+      apt_repository:
+        repo: "deb https://download.docker.com/linux/ubuntu focal stable"
+        state: present
+        update_cache: yes
+    - name: install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+    - name: install docker-ce-cli
+      apt:
+        name: docker-ce-cli
+        state: latest
+    - name: install containerd.io
+      apt:
+        name: containerd.io
+        state: latest
+        update_cache: true
+    - name: install docker-compose-plugin
+      apt:
+        name: docker-compose-plugin
+        state: latest
