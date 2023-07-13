@@ -13,6 +13,8 @@ AlertManager
 
 https://github.com/Grigorio-Makario/visu2.git  
 
+# Для автоматической сборки и отправки docker-образа в Registry, можно использовать следующий CI/CD pipeline (GitLab) .gitlab-ci.yml
+
 
   
 При необходимости масштабирования состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
@@ -60,7 +62,7 @@ $ sudo pip3 install -r kubespray/requirements.txt
 $ cp terraform/private.auto.tfvars.example terraform/private.auto.tfvars
 $ vim terraform/private.auto.tfvars
 ```
-##Необходимо заполнить следующие значения:
+## Необходимо заполнить следующие значения:
 ```
 yc_token – OAuth-токен для доступа к API 
 (https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token)
@@ -86,8 +88,9 @@ $ mkdir -p ~/.kube && cp kubespray/inventory/mycluster/artifacts/admin.conf ~/.k
 
 ## Пример запуска pod-ов для тестового app + postgresql  
 Тестовое приложение склонировать по ссылке  
-https://github.com/vinhlee95/django-pg-docker-tutorial
+https://github.com/vinhlee95/django-pg-docker-tutorial  
 
+## Для автоматической сборки
 ```
 $ helm install --namespace devops --create-namespace my-postgresql bitnami/postgresql -f values.yaml
 $ helm upgrade -i --namespace devops  app App-HelmChart/
