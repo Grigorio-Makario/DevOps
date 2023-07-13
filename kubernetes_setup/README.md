@@ -5,6 +5,10 @@
 1 - External Load Balancer.   
 Так же отдельный Sever (Ubuntu) для мониторинга и сборки Docker-образов.  
 Для автоматической установки Docker на удаленный сервер. можно использовать уже готовый play-book Ansible ansible/docker.yml  
+Для разворачивания средств сбора мерик и мониторинга (отправки Alerts в Telegram при сбоях кластера или самого Server) использовать ужеготовый Docker compose.  
+https://github.com/Grigorio-Makario/visu2.git  
+
+  
 При необходимости масштабирования состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
 /kubernetes_setup/terraform/k8s-cluster.tf  
 ![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/0d9675aa-4888-42d0-b11a-3aefb05b900c)
