@@ -1,42 +1,61 @@
-# Install k8s cluster with Kubespray on Yandex Cloud
+В данном примере рассматривается установка и запуск K8s Cluster,
+состоящего из:
+1 - Master
+1 - Worker
+1 - Ingress
+а также External Load Balancer. 
+При необходимости расширения состава кластера (кол-во нод, подсетей и зон), необходимо внести соответствующие изенения в файле
+/kubernetes_setup/terraform/k8s-cluster.tf
+![image](https://github.com/Grigorio-Makario/DevOps/assets/119935857/adfbe297-f7a5-4c12-968b-c592fc9f8fcd)
 
-## Register in Yandex Cloud
+----------------------------------------------------------
+# Для работы с платформой необходимо создать свое “облако” 
+на официальном сайте 
 
 https://cloud.yandex.ru
 
-## Install Terraform client 
+## Установить Terraform 
+Позволяет автоматизировать создание, обновление 
+и удаление необходимых ресурсов.
+Для использования необходимо установить клиент: 
 
 https://learn.hashicorp.com/terraform/getting-started/install
 
-## Install Ansible
+## Для управление конфигурацией и развертывание приложений, необходимо установить Ansible
 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-## Install Kubectl
+## Установить kubectl – для управления k8s-кластером:
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
-## Install Helm
+## Установить Helm – для установки Helm-пакетов:
 
 https://helm.sh/docs/intro/install/
 
-## Install jq (small CLI utility for JSON parsing)
+## jq - консольная утилита для работы с JSON-данными:
 
 https://stedolan.github.io/jq/
 
-## Clone Kubespray repo and install Kubespray requirements
-```
-$ git clone git@git.cloud-team.ru:ansible-roles/kubespray.git kubespray -b cloudteam
+## Отдельно клонируем репозиторий Kubespray:
+$ cd kubernetes_setup
+$ git clone git@git.cloud-team.ru:ansible-roles/kubespray.git \
+ kubespray -b cloudteam
+Устанавливаем зависимости Kubespray:
 $ sudo pip3 install -r kubespray/requirements.txt
-```
 
-## Set Terraform variables
+## Определить необходимые переменные для Terraform
 ```
 $ cp terraform/private.auto.tfvars.example terraform/private.auto.tfvars
 $ vim terraform/private.auto.tfvars
 ```
+Необходимо заполнить следующие значения:
+● yc_token – OAuth-токен для доступа к API 
+(https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token)
+● yc_cloud_id – ID облака (скопировать из консоли управления)
+● yc_folder_id – ID каталога (скопировать из консоли управления)
 
-## Create cloud resources and install k8s cluster
+## Для запуска установки и настройки кластера необходимо запустить следующий скрипт.
 ```
 $ bash cluster_install.sh
 ```
