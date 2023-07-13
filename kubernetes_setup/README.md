@@ -65,13 +65,12 @@ $ sudo pip3 install -r kubespray/requirements.txt
 $ cp terraform/private.auto.tfvars.example terraform/private.auto.tfvars
 $ vim terraform/private.auto.tfvars
 ```
-## Необходимо заполнить следующие значения:
-```
-yc_token – OAuth-токен для доступа к API 
-(https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token)
-yc_cloud_id – ID облака (скопировать из консоли управления)
-yc_folder_id – ID каталога (скопировать из консоли управления)
-```
+## Необходимо заполнить следующие значения:  
+yc_token – OAuth-токен для доступа к API  
+(https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token)  
+yc_cloud_id – ID облака (скопировать из консоли управления)  
+yc_folder_id – ID каталога (скопировать из консоли управления)  
+
 
 ## Для запуска установки и настройки кластера необходимо запустить следующий скрипт.
 Скрипт выполняет следующие действия:
